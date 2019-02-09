@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>EMail</th>
+      <th>Birth</th>
+      <th>Fullname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authors">
+      <td>{{author.id}}</td>
+      <td>{{author.firstname}}</td>
+      <td>{{author.lastname}}</td>
+      <td>{{author.eMail}}</td>
+      <td>{{author.birth}}</td>
+      <td>{{author.GetFullName()}}</td>
+    </tr>
+  </tbody>
+</table>
