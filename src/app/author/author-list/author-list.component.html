@@ -1,22 +1,34 @@
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>EMail</th>
-      <th>Birth</th>
-      <th>Fullname</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let author of authors">
-      <td>{{author.id}}</td>
-      <td>{{author.firstname}}</td>
-      <td>{{author.lastname}}</td>
-      <td>{{author.eMail}}</td>
-      <td>{{author.birth}}</td>
-      <td>{{author.GetFullName()}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table [dataSource]="authors" class="mat-elevation-z8">
+  <!-- FirstName Column -->
+  <ng-container matColumnDef="FirstName">
+    <mat-header-cell *matHeaderCellDef> Firstname </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.firstname}} </mat-cell>
+  </ng-container>
+
+  <!-- LastName Column -->
+  <ng-container matColumnDef="LastName">
+    <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+  </ng-container>
+
+  <!-- EMail Column -->
+  <ng-container matColumnDef="EMail">
+    <mat-header-cell *matHeaderCellDef> EMail </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.eMail}} </mat-cell>
+  </ng-container>
+
+  <!-- Birth Column -->
+  <ng-container matColumnDef="Birth">
+    <mat-header-cell *matHeaderCellDef> Birth </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.birth}} </mat-cell>
+  </ng-container>
+
+  <!-- FullName Column -->
+  <ng-container matColumnDef="FullName">
+    <mat-header-cell *matHeaderCellDef> FullName </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.GetFullName()}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

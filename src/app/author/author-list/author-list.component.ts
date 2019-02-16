@@ -11,8 +11,11 @@ import { Author } from 'src/app/entities/author';
 export class AuthorListComponent implements OnInit {
 
   public authors: Array<Author>;
+  public displayedColumns: Array<String>;
 
-  constructor(private authorService: AuthorService ) { }
+  constructor(private authorService: AuthorService ) {
+    this.displayedColumns = ['FirstName', 'LastName', 'EMail', 'Birth', 'FullName'];
+   }
 
   ngOnInit() {
     this.authorService.getAuthors().subscribe(

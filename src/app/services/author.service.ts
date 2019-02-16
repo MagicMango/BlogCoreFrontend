@@ -16,4 +16,14 @@ export class AuthorService {
     console.log(backendUrl);
     return this.http.get<Array<Author>>(backendUrl + '/authors');
   }
+
+  createAuthor(author: Author) {
+    const backendUrl = environment.backendURL;
+    return this.http.post<Author>(backendUrl + '/authors/create', author
+    , {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    });
+  }
 }

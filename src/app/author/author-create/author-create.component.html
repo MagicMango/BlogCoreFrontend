@@ -1,3 +1,15 @@
-<p>
-  author-create works!
-</p>
+<form [formGroup]="authorForm">
+  <mat-form-field>
+    <input matInput formControlName="firstname" [(ngModel)]="author.firstname" placeholder="FirstName"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="lastname" [(ngModel)]="author.lastname" placeholder="LastName" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="email" [(ngModel)]="author.eMail" placeholder="EMail"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="birth" [(ngModel)]="author.birth" placeholder="Birth"/>
+  </mat-form-field>
+  <button (click)="SaveAuthor()"></button>
+</form>
