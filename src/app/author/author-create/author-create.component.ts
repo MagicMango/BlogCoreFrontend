@@ -11,15 +11,16 @@ import { Author } from 'src/app/entities/author';
 export class AuthorCreateComponent implements OnInit {
   public authorForm: FormGroup;
   public author: Author;
+  public errorMessages: any = {};
   constructor(private authorService: AuthorService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.author = new Author();
     this.authorForm = this.formBuilder.group({
-      firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
-      lastname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      birth: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(512)]],
+      Firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
+      Lastname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      Birth: ['', [/*Validators.required*/]],
+      EMail: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(512)]],
     });
   }
 
@@ -34,7 +35,12 @@ export class AuthorCreateComponent implements OnInit {
         alert('Alles tutti');
        },
       error: (error) => {
-        alert('Alles scheiße');
+        switch (error.status) {
+          case 400:
+            this.errorMessages = error.error;
+            break;
+        }
+        console.log(this.errorMessages);
       }
     });
   }

@@ -1,15 +1,35 @@
 <form [formGroup]="authorForm">
   <mat-form-field>
-    <input matInput formControlName="firstname" [(ngModel)]="author.firstname" placeholder="FirstName"/>
+    <input matInput formControlName="Firstname" [(ngModel)]="author.Firstname" placeholder="FirstName" />
+    <ng-container *ngFor="let item of errorMessages?.Firstname">
+      <mat-error *ngIf="errorMessages.Firstname">
+        {{item}}
+      </mat-error>
+    </ng-container>
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="lastname" [(ngModel)]="author.lastname" placeholder="LastName" />
+    <input matInput formControlName="Lastname" [(ngModel)]="author.Lastname" placeholder="LastName" />
+    <ng-container *ngFor="let item of errorMessages?.Lastname">
+      <mat-error *ngIf="errorMessages.Lastname">
+        {{item}}
+      </mat-error>
+    </ng-container>
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="email" [(ngModel)]="author.eMail" placeholder="EMail"/>
+    <input matInput formControlName="EMail" [(ngModel)]="author.EMail" placeholder="EMail" />
+    <ng-container *ngFor="let item of errorMessages?.EMail">
+      <mat-error *ngIf="errorMessages.EMail">
+        {{item}}
+      </mat-error>
+    </ng-container>
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="birth" [(ngModel)]="author.birth" placeholder="Birth"/>
+    <input matInput formControlName="Birth" [(ngModel)]="author.Birth" placeholder="Birth" />
+    <ng-container *ngFor="let item of errorMessages?.Birth">
+      <mat-error *ngIf="errorMessages.Birth">
+        {{item}}
+      </mat-error>
+    </ng-container>
   </mat-form-field>
-  <button (click)="SaveAuthor()"></button>
+  <button mat-button (click)="SaveAuthor()">Save</button>
 </form>

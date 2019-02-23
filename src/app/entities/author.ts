@@ -5,22 +5,22 @@ export class Author extends BaseEntity {
 
         constructor() {
             super();
-            this.blogentrys = [];
-            this.id = 0;
-            this.firstname = '';
-            this.lastname = '';
-            this.eMail = '';
-            this.birth = new Date();
+            this.Blogentrys = [];
+            this.Id = 0;
+            this.Firstname = '';
+            this.Lastname = '';
+            this.EMail = '';
+            this.Birth = null;
         }
 
-        public id: number;
-        public firstname: string;
-        public lastname: string;
-        public eMail: string;
-        public birth: Date;
-        public blogentrys: Array<BlogEntry>;
+        public Id: number;
+        public Firstname: string;
+        public Lastname: string;
+        public EMail: string;
+        public Birth: Date;
+        public Blogentrys: Array<BlogEntry>;
 
         GetFullName() {
-            return this.firstname + ' ' + this.lastname;
+            return this.Firstname + ' ' + this.Lastname;
         }
 }
